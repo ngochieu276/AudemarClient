@@ -1,11 +1,9 @@
-import './App.css';
+import IntroduceVideo from "./component/IntroduceVideo";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="font-lora">
-      Hello world!
-    </h1>
+    <div className='App'>
+      <IntroduceVideo />
     </div>
   );
 }
