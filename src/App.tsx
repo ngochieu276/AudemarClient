@@ -1,9 +1,9 @@
-import IntroduceVideo from "./component/IntroduceVideo";
+import Mainpage from "./page/main-page";
 
 function App() {
   return (
     <div className='App'>
-      <IntroduceVideo />
+      <Mainpage />
     </div>
   );
 }
