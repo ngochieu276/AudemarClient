@@ -23,8 +23,8 @@ export default function IntroduceNoneBG(props: IntroSlideProps) {
       <div className='ps-24'>
         <h2 className='font-raleway text-6xl text-white font-thin whitespace-pre-line'>{props.title1}</h2>
         <h2 className='font-lora text-6xl text-white font-normal italic mb-8 whitespace-pre-line'>{props.title2}</h2>
-        <p className='text-white w-full mb-8 whitespace-pre-line ms-36'>{props.description}</p>
-        <div className="ms-36">
+        <p className='text-white w-full mb-8 whitespace-pre-line ps-36'>{props.description}</p>
+        <div className="ps-36">
           <ButtonMore label={props.btnMoreLabel}/>
         </div>
       </div>

@@ -9,6 +9,9 @@ module.exports = {
         raleway: ["Raleway", "sans-serif"],
         lora: ["Lora", "serif"],
       },
+      scale: {
+        '200': '2.0',
+      }
     },
   },
   plugins: [],

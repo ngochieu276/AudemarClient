@@ -3,8 +3,11 @@ import IntroduceSlide from "../component/IntroduceSlide"
 import IntroduceVideo from "../component/IntroduceVideo";
 import CardDetail from "../component/CardDetail";
 import IntroduceNoneBG from "../component/IntroduceNoneBg";
+import Gallery from "../component/Gallery";
+import IntroduceImage from "../component/IntroduceImage";
+import Footer from "../layout/Footer";
 
-const slides = [
+const slides1 = [
   {
     link: 'https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/carouselHP_novelties_1000x1324_tamara_jan24?size=568,0&fmt=webp-alpha',
     title: 'Royal Oak Concept Flying Tourbillon "Tamara Ralph" Limited Edition',  
@@ -22,6 +25,51 @@ const slides = [
   }
 ];
 
+const listGallery = [
+  "https://www.audemarspiguet.com/content/dam/ap/com/novelties/cactus-jack/CactusJack_Carousel_02.jpg",
+  "https://www.audemarspiguet.com/content/dam/ap/com/homepage/2024/tamara-ralph/15s_REVEAL_MASTER_231123_16-9_H264.mp4",
+  "https://www.audemarspiguet.com/content/dam/ap/com/homepage/2024/tamara-ralph/Lookbook_CactusJack_04_bis.jpg",
+  "https://www.audemarspiguet.com/content/dam/ap/com/homepage/2024/tamara-ralph/Lookbook_CactusJack_01.jpg",
+  "https://www.audemarspiguet.com/content/dam/ap/com/homepage/2024/tamara-ralph/Lookbook_CactusJack_04.jpg",
+];
+
+const slides2 = [
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/homepage/2023/avril-new-roo/HP_carousel_NewCode_1000x1321_01.jpg.transform.apcarouselv.jpg'
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/homepage/2023/avril-new-roo/HP_carousel_NewCode_1000x1321_02.jpg.transform.apcarouselv.jpg'
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/homepage/2023/avril-new-roo/HP_carousel_NewCode_1000x1321_03.jpg.transform.apcarouselv.jpg',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/homepage/2023/avril-new-roo/HP_carousel_NewCode_1000x1321_04.jpg.transform.apcarouselv.jpg',
+  }
+];
+
+const slides3 = [
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/stories-savoir-faire/podcast-episode-3/Miniature%201_1%20Podcast%203%20(1).jpg.transform.apcarouselvtabwide.jpg',
+    title: "Ep 3 - The Royal Oak Offshore's 30th anniversary",  
+    description: 'In this new episode of the AP Talks podcast, Malaika Crawford, journalist and watch expert, François-Henry Bennahmias, CEO of Audemars Piguet and Raphaël Balestra, Heritage & Archives Manager talk about the Royal Oak Offshore collection and its unconventional journey that started 30 years ago.',
+    buttonMoreLabel: 'Listen to the podcast'
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/novelties/book-assouline/COVER_1_2.jpg.transform.apcarouselvtabwide.jpg',
+    title: 'Ep 2 - A Step Inside the Archives of the Royal Oak',
+    description: 'Bill Prince and Sébastian Vivas, Heritage and Museum Director at Audemars Piguet, demystify the Royal Oak’s creation process, reception and commercial success by discussing new archival materials and sharing anecdotes. ',
+    buttonMoreLabel: 'Listen to the podcast'
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/novelties/book-assouline/COVER%20_1_1.jpg.transform.apcarouselvtabwide.jpg',
+    title: 'Ep 1 - 50 Years of Royal Oak:  A Not-so-Perfect Success Story',
+    description: 'Bill Prince turns the clock back with François-Henry Bennhamias, CEO of Audemars Piguet, to relive how the iconoclastic Royal Oak evolved to become an icon. A not so easy road as you will hear.',
+    buttonMoreLabel: 'Listen to the podcast'
+  }
+];
+
+
 export default function Mainpage() {
   return (
     <div>
@@ -35,7 +83,7 @@ export default function Mainpage() {
         title1={`OUR`}
         title2={`LATEST`}
         description={`Discover the new watches which\nembody the brand’s uncompromising\napproach to craftsmanship.`}
-        slideArray={slides.map(slide => {
+        slideArray={slides1.map(slide => {
           return <SwiperSlide><CardDetail {...slide}/></SwiperSlide>
         })}
         btnMoreLabel="Explore our latest"
@@ -46,6 +94,61 @@ export default function Mainpage() {
         description={`Audemars Piguet has teamed up with Cactus Jack, the \nbrand and record label founded by American hip hop \nartist Travis Scott, to design a dedicated Royal Oak \nPerpetual Calendar limited edition.`}
         btnMoreLabel="Discover more"
       />
+      <Gallery list={listGallery}/>
+      <IntroduceImage
+        img="https://www.audemarspiguet.com/content/dam/ap/com/homepage/2023/avril-new-roo/universelle_HP_1920x1283.jpg.transform.apfw.jpg" 
+        title1={`THE CODE \n11.59`}
+        title2={`BY \nAUDEMARS \nPIGUET \nUNIVERSELLE`}
+        description={`Audemars Piguet pays tribute to its legacy \nof high complications in this new creation \nthat incorporates 40 different functions, \nincluding 23 complications.`}
+        btnMoreLabel="Discover more"
+      />
+      <IntroduceSlide 
+        title1={`CODE 11.59 BY \nAUDEMARS \nPIGUET`}
+        title2={`NOW IN STEEL`}
+        description={`For the very first time, six new \nreferences of the Code 11.59 by \nAudemars Piguet Selfwinding and \nSelfwinding Chronograph have been \ncreated in stainless steel.`}
+        slideArray={slides2.map(slide => {
+          return <SwiperSlide><CardDetail {...slide} onlyImage={true}/></SwiperSlide>
+        })}
+      />
+      <IntroduceImage
+        img="https://www.audemarspiguet.com/content/dam/ap/com/homepage/2022/50-anniversary/header_APChronicles_1920x1129_v2.jpg.transform.apfw.jpg" 
+        title1={`AP \nCHRONICLES:`}
+        title2={`DIVE INTO \nTHE ROYAL \nOAK'S \nHISTORY`}
+        description={`Travel back in time and immerse yourself \ninto the Royal Oak's universe through \nenriched articles, technical sheets of \nmodels and calibres as well as exclusive \nanecdotes and archival footages uncovered \nby our Heritage team..`}
+        btnMoreLabel="Explore AP Chronicles"
+      />
+      <IntroduceSlide 
+        title1={`AP TALKS`}
+        title2={`PODCAST`}
+        description={`Discover the third episode of the AP \nTALKS Podcast, a series of \nconversations presenting Audemars \nPiguet’s craftsmanship, heritage and \ncultural universe through the eyes of \nAudemars Piguet’s experts and special \nguests.`}
+        slideArray={slides3.map(slide => {
+          return <SwiperSlide><CardDetail {...slide}/></SwiperSlide>
+        })}
+      />
+      <IntroduceImage
+        img="https://www.audemarspiguet.com/content/dam/ap/com/homepage/Musee_HP.jpg.transform.apfw.jpg" 
+        title1={`MUSÉE \nATELIER`}
+        title2={`AUDEMARS \nPIGUET`}
+        description={`Experience our heritage, craftsmanship and \nconnection to the world in the Musée Atelier \nAudemars Piguet which pays tribute to the \ncraftspeople who have made what Audemars \nPiguet is today, generation after generation.`}
+        btnMoreLabel="Discover more"
+      />
+      <IntroduceImage
+        img="https://www.audemarspiguet.com/content/dam/ap/com/homepage/2023/avril-new-roo/img_apcoverage_1920x1283_05.jpg.transform.apfw.jpg" 
+        title1={`AP \nCOVERAGE`}
+        title2={`SERVICE`}
+        description={`Discover the AP Coverage Service, a 2-year \ncomplimentary service covering the risks of \ntheft as well as partial or total functional \ndamage.`}
+        btnMoreLabel="Discover more"
+        reverse
+        imgScale="2/3"
+      />
+      <IntroduceImage
+        img="https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/image_boutiques_hp?size=1920,0&wid=1920&fmt=webp-alpha" 
+        title1={`FIND A`}
+        title2={`BOUTIQUE`}
+        btnMoreLabel="Explore all Boutiques"
+        whiteMode
+      />
+      <Footer />
     </div>
   )
 }
