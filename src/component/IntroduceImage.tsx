@@ -1,4 +1,5 @@
 import ButtonMore from "./ui-component/more-button";
+import Intro from "./ui-component/intro";
 
 interface IntroImageProps {
   title1?: string;
@@ -26,29 +27,35 @@ export default function IntroduceImage(props: IntroImageProps) {
 
   if (props.reverse) {
     return (
-      <div className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-24 grid grid-cols-3 gap-24`}>
-        <div className="col-span-1">
-          <h2 className='font-raleway text-6xl font-thin whitespace-pre-line'>{props.title1}</h2>
-          <h2 className='font-lora text-6xl font-normal italic mb-8 whitespace-pre-line'>{props.title2}</h2>
-          <p className=' w-full mb-8 whitespace-pre-line'>{props.description}</p>
-          <ButtonMore label={props.btnMoreLabel} whiteMode={props.whiteMode}/>
+      <div className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-8 lg:p-24 grid grid-cols-3 gap-8 lg:gap-24`}>
+        <div className="col-span-3 lg:col-span-1">
+          <Intro 
+            title1={props.title1}
+            title2={props.title2}
+            description={props.description}
+            whiteMode={props.whiteMode}
+            btnMoreLabel={props.btnMoreLabel}
+          />
         </div>
-        <div className='col-span-2 flex justify-center items-center object-contain'>
+        <div className='col-span-3 lg:col-span-2 flex justify-center items-center object-contain'>
           <img src={props.img} alt='introduce' className={`${getImageWidth(props.imgScale)}`} />
         </div>
       </div>
     );
   }
   return (
-    <div className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-24 grid grid-cols-3 gap-24`}>
-      <div className='col-span-2 flex justify-center items-center object-contain'>
+    <div className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-8 lg:p-24 grid grid-cols-3 gap-8 lg:gap-24`}>
+      <div className='col-span-3 lg:col-span-2 flex justify-center items-center object-contain'>
         <img src={props.img} alt='introduce' className={`${getImageWidth()}`}/>
       </div>
-      <div className="col-span-1">
-        <h2 className='font-raleway text-6xl font-thin whitespace-pre-line'>{props.title1}</h2>
-        <h2 className='font-lora text-6xl font-normal italic mb-8 whitespace-pre-line'>{props.title2}</h2>
-        <p className='w-full mb-8 whitespace-pre-line'>{props.description}</p>
-        <ButtonMore label={props.btnMoreLabel} whiteMode={props.whiteMode}/>
+      <div className="col-span-3 lg:col-span-1 row-start-1">
+        <Intro 
+          title1={props.title1}
+          title2={props.title2}
+          description={props.description}
+          whiteMode={props.whiteMode}
+          btnMoreLabel={props.btnMoreLabel}
+        />
       </div>
     </div>
   );

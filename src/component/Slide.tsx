@@ -2,12 +2,22 @@ import { Swiper } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import useWindowDimensions from '../hook/useWindowDimention';
 
 export default function Slide({children} : {children: any}) {
+  const { width } = useWindowDimensions();
+
+  const getSliderPerview = (windowWidth?: number) => {
+    if (!windowWidth) return 1;
+    if (windowWidth >= 768) {
+      return 2
+    } else return 1
+  }
+
   return (
     <>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={getSliderPerview(width)}
         spaceBetween={12}
         className="swiper"
       >

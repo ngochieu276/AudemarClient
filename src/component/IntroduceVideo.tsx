@@ -1,5 +1,5 @@
 import HeroVideo from '../assets/video/hero-mainpage.mp4';
-import ButtonMore from './ui-component/more-button';
+import Intro from './ui-component/intro';
 import VideoPlay from './ui-component/video-play';
 
 interface IntroVideProps {
@@ -18,10 +18,12 @@ export default function IntroduceVideo(props: IntroVideProps) {
         loop
       />
       <div className='absolute start-8 inset-y-1/3 -translate-y-1/2'>
-        <h2 className='font-raleway text-6xl text-white font-thin whitespace-pre-line'>{props.title1}</h2>
-        <h2 className='font-lora text-6xl text-white font-normal italic mb-8 whitespace-pre-line'>{props.title2}</h2>
-        <p className='text-white w-2/3 mb-8'>{props.description}</p>
-        <ButtonMore label={props.btnMoreLabel}/>
+        <Intro
+          title1={props.title1}
+          title2={props.title2}
+          description={props.description}
+          btnMoreLabel={props.btnMoreLabel}
+        />
       </div>
     </div>
   );

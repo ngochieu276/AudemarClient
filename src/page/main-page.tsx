@@ -74,15 +74,15 @@ export default function Mainpage() {
   return (
     <div>
       <IntroduceVideo 
-        title1={`A BOLDLY\nFEMININE`}
-        title2={`ROYAL OAK\nCONCEPT`}
-        description={`A Royal Oak Concept Flying Tourbillon limited-edition designed\n in collaboration with Haute Couture designer Tamara Ralph.`}
+        title1={`A BOLDLY FEMININE`}
+        title2={`ROYAL OAK CONCEPT`}
+        description={`A Royal Oak Concept Flying Tourbillon limited-edition designed in collaboration with Haute Couture designer Tamara Ralph.`}
         btnMoreLabel="Discover more"
       />
       <IntroduceSlide 
         title1={`OUR`}
         title2={`LATEST`}
-        description={`Discover the new watches which\nembody the brand’s uncompromising\napproach to craftsmanship.`}
+        description={`Discover the new watches which embody the brand’s uncompromising approach to craftsmanship.`}
         slideArray={slides1.map(slide => {
           return <SwiperSlide><CardDetail {...slide}/></SwiperSlide>
         })}
@@ -91,52 +91,52 @@ export default function Mainpage() {
       <IntroduceNoneBG 
         title1={`AP X`}
         title2={`CACTUS JACK`}
-        description={`Audemars Piguet has teamed up with Cactus Jack, the \nbrand and record label founded by American hip hop \nartist Travis Scott, to design a dedicated Royal Oak \nPerpetual Calendar limited edition.`}
+        description={`Audemars Piguet has teamed up with Cactus Jack, the brand and record label founded by American hip hop artist Travis Scott, to design a dedicated Royal Oak Perpetual Calendar limited edition.`}
         btnMoreLabel="Discover more"
       />
       <Gallery list={listGallery}/>
       <IntroduceImage
         img="https://www.audemarspiguet.com/content/dam/ap/com/homepage/2023/avril-new-roo/universelle_HP_1920x1283.jpg.transform.apfw.jpg" 
-        title1={`THE CODE \n11.59`}
-        title2={`BY \nAUDEMARS \nPIGUET \nUNIVERSELLE`}
-        description={`Audemars Piguet pays tribute to its legacy \nof high complications in this new creation \nthat incorporates 40 different functions, \nincluding 23 complications.`}
+        title1={`THE CODE 11.59`}
+        title2={`BY AUDEMARS PIGUET UNIVERSELLE`}
+        description={`Audemars Piguet pays tribute to its legacy of high complications in this new creation that incorporates 40 different functions, including 23 complications.`}
         btnMoreLabel="Discover more"
       />
       <IntroduceSlide 
-        title1={`CODE 11.59 BY \nAUDEMARS \nPIGUET`}
+        title1={`CODE 11.59 BY AUDEMARS PIGUET`}
         title2={`NOW IN STEEL`}
-        description={`For the very first time, six new \nreferences of the Code 11.59 by \nAudemars Piguet Selfwinding and \nSelfwinding Chronograph have been \ncreated in stainless steel.`}
+        description={`For the very first time, six new references of the Code 11.59 by Audemars Piguet Selfwinding and Selfwinding Chronograph have been created in stainless steel.`}
         slideArray={slides2.map(slide => {
           return <SwiperSlide><CardDetail {...slide} onlyImage={true}/></SwiperSlide>
         })}
       />
       <IntroduceImage
         img="https://www.audemarspiguet.com/content/dam/ap/com/homepage/2022/50-anniversary/header_APChronicles_1920x1129_v2.jpg.transform.apfw.jpg" 
-        title1={`AP \nCHRONICLES:`}
-        title2={`DIVE INTO \nTHE ROYAL \nOAK'S \nHISTORY`}
-        description={`Travel back in time and immerse yourself \ninto the Royal Oak's universe through \nenriched articles, technical sheets of \nmodels and calibres as well as exclusive \nanecdotes and archival footages uncovered \nby our Heritage team..`}
+        title1={`AP CHRONICLES:`}
+        title2={`DIVE INTO THE ROYAL OAK'S HISTORY`}
+        description={`Travel back in time and immerse yourself into the Royal Oak's universe through enriched articles, technical sheets of models and calibres as well as exclusive anecdotes and archival footages uncovered by our Heritage team..`}
         btnMoreLabel="Explore AP Chronicles"
       />
       <IntroduceSlide 
         title1={`AP TALKS`}
         title2={`PODCAST`}
-        description={`Discover the third episode of the AP \nTALKS Podcast, a series of \nconversations presenting Audemars \nPiguet’s craftsmanship, heritage and \ncultural universe through the eyes of \nAudemars Piguet’s experts and special \nguests.`}
+        description={`Discover the third episode of the AP TALKS Podcast, a series of conversations presenting Audemars Piguet’s craftsmanship, heritage and cultural universe through the eyes of Audemars Piguet’s experts and special guests.`}
         slideArray={slides3.map(slide => {
           return <SwiperSlide><CardDetail {...slide}/></SwiperSlide>
         })}
       />
       <IntroduceImage
         img="https://www.audemarspiguet.com/content/dam/ap/com/homepage/Musee_HP.jpg.transform.apfw.jpg" 
-        title1={`MUSÉE \nATELIER`}
-        title2={`AUDEMARS \nPIGUET`}
-        description={`Experience our heritage, craftsmanship and \nconnection to the world in the Musée Atelier \nAudemars Piguet which pays tribute to the \ncraftspeople who have made what Audemars \nPiguet is today, generation after generation.`}
+        title1={`MUSÉE ATELIER`}
+        title2={`AUDEMARS PIGUET`}
+        description={`Experience our heritage, craftsmanship and connection to the world in the Musée Atelier Audemars Piguet which pays tribute to the craftspeople who have made what Audemars Piguet is today, generation after generation.`}
         btnMoreLabel="Discover more"
       />
       <IntroduceImage
         img="https://www.audemarspiguet.com/content/dam/ap/com/homepage/2023/avril-new-roo/img_apcoverage_1920x1283_05.jpg.transform.apfw.jpg" 
-        title1={`AP \nCOVERAGE`}
+        title1={`AP COVERAGE`}
         title2={`SERVICE`}
-        description={`Discover the AP Coverage Service, a 2-year \ncomplimentary service covering the risks of \ntheft as well as partial or total functional \ndamage.`}
+        description={`Discover the AP Coverage Service, a 2-year complimentary service covering the risks of theft as well as partial or total functional damage.`}
         btnMoreLabel="Discover more"
         reverse
         imgScale="2/3"

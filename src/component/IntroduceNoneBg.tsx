@@ -10,21 +10,21 @@ interface IntroSlideProps {
 
 export default function IntroduceNoneBG(props: IntroSlideProps) {
 
-  const getBGColor = (color?: string) => {
-    if (color === 'black') {
-      return 'bg-black'
-    } else if (color === 'white') {
-      return 'bg-white'
-    } else return 'bg-black'
+  const getColor = (bgColor?: string) => {
+    if (bgColor === 'black') {
+      return { bg: 'bg-black', text: 'text-white' }
+    } else if (bgColor === 'white') {
+      return { bg: 'bg-white', text: 'text-black' }
+    } else return { bg: 'bg-black', text: 'text-white' }
   }
 
   return (
-    <div className={`introduce-slide relative w-full ${getBGColor(props.bgColor)} py-16 grid`}>
-      <div className='ps-24'>
-        <h2 className='font-raleway text-6xl text-white font-thin whitespace-pre-line'>{props.title1}</h2>
-        <h2 className='font-lora text-6xl text-white font-normal italic mb-8 whitespace-pre-line'>{props.title2}</h2>
-        <p className='text-white w-full mb-8 whitespace-pre-line ps-36'>{props.description}</p>
-        <div className="ps-36">
+    <div className={`introduce-slide relative w-full ${getColor(props.bgColor).bg} ${getColor(props.bgColor).text} py-16 grid`}>
+      <div className='p-8 lg:p-24'>
+        <h2 className='font-raleway text-4xl lg:text-6xl font-thin'>{props.title1}</h2>
+        <h2 className='font-lora text-4xl lg:text-6xl font-normal italic mb-8'>{props.title2}</h2>
+        <p className='w-full mb-8 ps-0 lg:ps-36 lg:w-1/2'>{props.description}</p>
+        <div className="ps-0 lg:ps-36">
           <ButtonMore label={props.btnMoreLabel}/>
         </div>
       </div>
