@@ -1,4 +1,3 @@
-import ButtonMore from "./ui-component/more-button";
 import Intro from "./ui-component/intro";
 
 interface IntroImageProps {
@@ -29,7 +28,7 @@ export default function IntroduceImage(props: IntroImageProps) {
     return (
       <div className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-8 lg:p-24 grid grid-cols-3 gap-8 lg:gap-24`}>
         <div className="col-span-3 lg:col-span-1">
-          <Intro 
+          <Intro  
             title1={props.title1}
             title2={props.title2}
             description={props.description}
@@ -48,7 +47,7 @@ export default function IntroduceImage(props: IntroImageProps) {
       <div className='col-span-3 lg:col-span-2 flex justify-center items-center object-contain'>
         <img src={props.img} alt='introduce' className={`${getImageWidth()}`}/>
       </div>
-      <div className="col-span-3 lg:col-span-1 row-start-1">
+      <div className="col-span-3 lg:col-span-1">
         <Intro 
           title1={props.title1}
           title2={props.title2}

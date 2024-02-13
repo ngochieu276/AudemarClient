@@ -6,6 +6,7 @@ import IntroduceNoneBG from "../component/IntroduceNoneBg";
 import Gallery from "../component/Gallery";
 import IntroduceImage from "../component/IntroduceImage";
 import Footer from "../layout/Footer";
+import Subcribe from "../layout/Subcribe";
 
 const slides1 = [
   {
@@ -148,6 +149,7 @@ export default function Mainpage() {
         btnMoreLabel="Explore all Boutiques"
         whiteMode
       />
+      <Subcribe />
       <Footer />
     </div>
   )

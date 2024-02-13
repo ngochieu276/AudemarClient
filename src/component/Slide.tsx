@@ -8,10 +8,10 @@ export default function Slide({children} : {children: any}) {
   const { width } = useWindowDimensions();
 
   const getSliderPerview = (windowWidth?: number) => {
-    if (!windowWidth) return 1;
+    if (!windowWidth) return 1.25;
     if (windowWidth >= 768) {
-      return 2
-    } else return 1
+      return 2.25
+    } else return 1.25
   }
 
   return (

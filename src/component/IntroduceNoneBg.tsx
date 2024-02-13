@@ -22,8 +22,8 @@ export default function IntroduceNoneBG(props: IntroSlideProps) {
     <div className={`introduce-slide relative w-full ${getColor(props.bgColor).bg} ${getColor(props.bgColor).text} py-16 grid`}>
       <div className='p-8 lg:p-24'>
         <h2 className='font-raleway text-4xl lg:text-6xl font-thin'>{props.title1}</h2>
-        <h2 className='font-lora text-4xl lg:text-6xl font-normal italic mb-8'>{props.title2}</h2>
-        <p className='w-full mb-8 ps-0 lg:ps-36 lg:w-1/2'>{props.description}</p>
+        <h2 className='font-lora text-4xl lg:text-6xl font-normal italic mb-4 lg:mb-8'>{props.title2}</h2>
+        <p className='w-3/4 mb-4 lg:mb-8 ps-0 lg:ps-36 lg:w-1/2'>{props.description}</p>
         <div className="ps-0 lg:ps-36">
           <ButtonMore label={props.btnMoreLabel}/>
         </div>

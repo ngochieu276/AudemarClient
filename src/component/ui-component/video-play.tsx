@@ -15,7 +15,7 @@ export default function VideoPlay(props: VideoplayProps) {
       autoPlay={props.autoPlay || false}
       loop={props.loop || false}
       muted={props.muted || true}
-      className={`video-play w-full z-1 ${getScale(props.scale)}`}>
+      className={`video-play z-1 max-w-none ${getScale(props.scale)}`}>
       <source
         src={props.link}
         type='video/mp4'

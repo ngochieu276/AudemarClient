@@ -23,23 +23,22 @@ export default function Gallery(props: GalleryProps) {
         if (index === 1) {
           return (
             <div
-              className={`bg-black ${gridProperty} flex justify-center items-center overflow-hidden`}>
+              className={`bg-black ${gridProperty} flex justify-center items-center overflow-hidden max-h-full`}>
               <VideoPlay
                 link={item} 
                 autoPlay
                 loop
-                scale={"200"}
               />
             </div>
           );
         } else {
           return (
             <div
-              className={`bg-white ${gridProperty} flex justify-center items-center overflow-hidden`}>
+              className={`bg-white ${gridProperty} flex justify-center items-center object-cover overflow-hidden`}>
               <img
                 src={item}
                 alt='gallery'
-                className='scale-125 hover:scale-150 duration-1000'
+                className='hover:scale-125 duration-1000 h-full '
               />
             </div>
           );
