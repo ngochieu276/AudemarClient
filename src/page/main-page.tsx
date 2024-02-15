@@ -7,6 +7,7 @@ import Gallery from "../component/Gallery";
 import IntroduceImage from "../component/IntroduceImage";
 import Footer from "../layout/Footer";
 import Subcribe from "../layout/Subcribe";
+import Header from "../layout/Header";
 
 const slides1 = [
   {
@@ -74,6 +75,7 @@ const slides3 = [
 export default function Mainpage() {
   return (
     <div>
+      <Header />
       <IntroduceVideo 
         title1={`A BOLDLY FEMININE`}
         title2={`ROYAL OAK CONCEPT`}
