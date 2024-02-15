@@ -7,7 +7,7 @@ import {
   Tiktok,
   Wechat,
   Weibo,
-  Whatapp,
+  Whatsapp,
   Youtube,
 } from "../assets/svg/social-network";
 import { Global } from "../assets/svg/common";
@@ -151,42 +151,15 @@ export default function Footer() {
         </div>
       </div>
       <div className='col-span-3 2xl:col-span-1 flex items-center justify-center md:justify-start gap-4'>
-        <img
-          src={Instagram}
-          alt='facebook'
-        />
-        <img
-          src={Facebook}
-          alt='facebook'
-        />
-        <img
-          src={Youtube}
-          alt='facebook'
-        />
-        <img
-          src={Tiktok}
-          alt='facebook'
-        />
-        <img
-          src={LinkedIn}
-          alt='facebook'
-        />
-        <img
-          src={Pinterest}
-          alt='facebook'
-        />
-        <img
-          src={Weibo}
-          alt='facebook'
-        />
-        <img
-          src={Wechat}
-          alt='facebook'
-        />
-        <img
-          src={Whatapp}
-          alt='facebook'
-        />
+        <Instagram />
+        <Facebook />
+        <Youtube />
+        <Tiktok />
+        <LinkedIn />
+        <Pinterest />
+        <Weibo />
+        <Wechat />
+        <Whatsapp />
       </div>
       <div className='col-span-3 2xl:col-span-2 flex flex-col-reverse md:flex-row md:justify-between gap-8'>
         <div className="flex items-center justify-center gap-4 md:gap-16 text-xs font-semibold">
