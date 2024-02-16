@@ -11,116 +11,14 @@ import {
   Youtube,
 } from "../assets/svg/social-network";
 import { Global } from "../assets/svg/common";
-
-interface NavigationItem {
-  label: string;
-  path: string;
-}
-
-const watchList: NavigationItem[] = [
-  {
-    label: "All watches",
-    path: "",
-  },
-  {
-    label: "Our Collections",
-    path: "",
-  },
-  {
-    label: "New Releases",
-    path: "",
-  },
-  {
-    label: "Find a Boutique",
-    path: "",
-  },
-];
-
-const ourWorldList: NavigationItem[] = [
-  {
-    label: "Born in Le Brassus",
-    path: "",
-  },
-  {
-    label: "Musée Atelier",
-    path: "",
-  },
-  {
-    label: "AP Chronicles",
-    path: "",
-  },
-  {
-    label: "Stay connected",
-    path: "",
-  },
-];
-
-const servicesList: NavigationItem[] = [
-  {
-    label: "Maintenance Services",
-    path: "",
-  },
-  {
-    label: "Extend your warranty",
-    path: "",
-  },
-  {
-    label: "Contact us",
-    path: "",
-  },
-  {
-    label: "FAQ",
-    path: "",
-  },
-];
-
-const companyList: NavigationItem[] = [
-  {
-    label: "Careers",
-    path: "",
-  },
-  {
-    label: "Press",
-    path: "",
-  },
-  {
-    label: "Foundation",
-    path: "",
-  },
-  {
-    label: "Commitments",
-    path: "",
-  },
-];
-
-const policyList: NavigationItem[] = [
-  {
-    label: "Term of Use",
-    path: "",
-  },
-  {
-    label: "Privacy Notice",
-    path: "",
-  },
-  {
-    label: "Cookie Policy",
-    path: "",
-  },
-  {
-    label: "Accessibility",
-    path: "",
-  },
-];
+import {watchList, ourWorldList, servicesList, companyList, policyList} from './navigation-labels'
 
 export default function Footer() {
   return (
     <footer className='grid grid-cols-3 gap-8 p-8 lg:p-24 bg-emerald-950 text-white'>
       <div className='col-span-3 2xl:col-span-1'>
         <Link to='' className="flex items-center gap-4 pb-24">
-          <img
-            src={Global}
-            alt='global'
-          />
+          <Global />
           Change language / currency
         </Link>
       </div>

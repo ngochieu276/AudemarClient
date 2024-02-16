@@ -15,7 +15,7 @@ export const Pinterest: React.FC<Props> = ({
     <svg
       width={width}
       height={height}
-      viewBox="0 0 24 24"
+      viewBox={`0 0 ${height} ${width}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -27,7 +27,7 @@ export const Pinterest: React.FC<Props> = ({
       </g>
       <defs>
         <clipPath id="clip0_52_582">
-          <rect width="24" height="24" fill={color} />
+          <rect width={width} height={height} fill={color} />
         </clipPath>
       </defs>
     </svg>
