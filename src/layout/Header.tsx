@@ -13,6 +13,8 @@ import {
 } from "../assets/svg/social-network";
 import CompanyLogo from '../assets/image/Logo.png';
 import { watchList , servicesListHeader, ourWorldHeaderList, boutiqueList, storiesList} from './navigation-labels'
+import { useState } from "react";
+import { useScrollDirection, ScroolDirection } from "../hook/scrollDirection";
 
 const storiesLink = [
   {
@@ -33,15 +35,31 @@ const storiesLink = [
 ]
 
 export default function Header() {
+  const [isOpen, setOpen] = useState(false);
+
+  const scrollDirection = useScrollDirection();
+
+  console.log(scrollDirection);
+
+  const getHeaderPosition = (position: ScroolDirection | null) => {
+    if (position === ScroolDirection.up) {
+      return `top-0`
+    } else if (position === ScroolDirection.down) {
+      return `-top-32`
+    }
+  }
+
   return (
-    <header>
+    <header className={` sticky ${getHeaderPosition(scrollDirection)} z-50 bg-white duration-300`}>
       <div className="h-32 flex items-center justify-between font-semibold text-sm px-4 lg:px-24">
         <div className="flex items-center gap-12">
-          <div className="
+          <div
+            onClick={() => setOpen(!isOpen)} 
+            className={`
             w-8 h-2 cursor-pointer relative
-            after:content-[''] after:block after:absolute after:left-0 after:top-0 after:h-0.5 after:w-full after:bg-black
-            before:content-[''] before:block before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-full before:bg-black
-            "
+            after:content-[''] after:block after:absolute after:left-0 after:top-0 after:h-0.5 after:w-full after:bg-black ${isOpen ? 'after:rotate-45 after:top-1/2' : ''} after:duration-500
+            before:content-[''] before:block before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-full before:bg-black ${isOpen ? 'before:-rotate-45 before:top-1/2' : ''} before:duration-500
+            `}
           ></div>
           <Link to="" className=" hidden lg:block hover:opacity-75">Watch</Link>
           <Link to="" className=" hidden lg:block hover:opacity-75">Our world</Link>
@@ -61,6 +79,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
+      {isOpen &&
       <div className=" grid grid-cols-4 px-4 pb-12 lg:px-24">
         <div className=" col-span-4 lg:col-span-1 md:row-start-2 lg:row-start-1 text-xs md:grid md:grid-cols-2 lg:flex lg:flex-col">
           <div className='flex flex-col mb-8'>
@@ -127,6 +146,7 @@ export default function Header() {
           <div className="flex justify-center md:justify-end">© 2024 Audemars Piguet</div>
         </div>
       </div>
+      }
     </header>
   )
 }
