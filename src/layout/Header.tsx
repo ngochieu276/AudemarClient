@@ -50,7 +50,7 @@ export default function Header() {
   }
 
   return (
-    <header className={` sticky ${getHeaderPosition(scrollDirection)} z-50 bg-white duration-300`}>
+    <header className={` sticky ${getHeaderPosition(scrollDirection)} z-50 bg-white duration-300 max-h-screen overflow-y-auto no-scrollbar`}>
       <div className="h-32 flex items-center justify-between font-semibold text-sm px-4 lg:px-24">
         <div className="flex items-center gap-12">
           <div
