@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from 'react';
 
 interface Props extends PropsWithChildren<any> {
   color?: string;
@@ -6,11 +6,7 @@ interface Props extends PropsWithChildren<any> {
   height?: number;
 }
 
-export const Facebook: React.FC<Props> = ({
-  color = "white",
-  width = 24,
-  height = 24,
-}) => {
+export const Facebook: React.FC<Props> = ({ color = 'white', width = 24, height = 24 }) => {
   return (
     <svg
       width={width}

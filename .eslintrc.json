@@ -1,5 +1,5 @@
 {
-"parser": "@typescript-eslint/parser",
+  "parser": "@typescript-eslint/parser",
   "extends": ["prettier"],
   "plugins": ["prettier"],
   "rules": {
@@ -8,7 +8,9 @@
     "prettier/prettier": [
       "error",
       {
-        "endOfLine": "auto"
+        "endOfLine": "lf",
+        "singleQuote": true,
+        "useTabs": false
       }
     ],
     "@typescript-eslint/no-var-requires": "off"

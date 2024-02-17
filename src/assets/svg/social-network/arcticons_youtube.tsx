@@ -1,16 +1,12 @@
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from 'react';
 
-interface Props extends PropsWithChildren<any>{
-  color?: string,
-  width?: number,
-  height?: number,
+interface Props extends PropsWithChildren<any> {
+  color?: string;
+  width?: number;
+  height?: number;
 }
 
-export const Youtube: React.FC<Props> = ({
-  color = 'white',
-  width = 24,
-  height = 24,
-}) => {
+export const Youtube: React.FC<Props> = ({ color = 'white', width = 24, height = 24 }) => {
   return (
     <svg
       width={width}
@@ -33,4 +29,4 @@ export const Youtube: React.FC<Props> = ({
       />
     </svg>
   );
-}
+};

@@ -8,18 +8,16 @@ interface VideoplayProps {
 
 export default function VideoPlay(props: VideoplayProps) {
   const getScale = (ratio?: string) => {
-    return ratio ? `scale-${ratio}` : ''
-  }
+    return ratio ? `scale-${ratio}` : '';
+  };
   return (
     <video
       autoPlay={props.autoPlay || false}
       loop={props.loop || false}
       muted={props.muted || true}
-      className={`video-play z-1 max-w-none ${getScale(props.scale)}`}>
-      <source
-        src={props.link}
-        type='video/mp4'
-      />
+      className={`video-play z-1 max-w-none ${getScale(props.scale)}`}
+    >
+      <source src={props.link} type="video/mp4" />
     </video>
-  )
+  );
 }
