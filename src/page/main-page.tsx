@@ -10,7 +10,7 @@ import Subcribe from '../layout/Subcribe';
 const slides1 = [
   {
     link: 'https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/carouselHP_novelties_1000x1324_tamara_jan24?size=568,0&fmt=webp-alpha',
-    title: 'Royal 1 Oak Concept Flying Tourbillon "Tamara Ralph" Limited Edition',
+    title: 'Royal Oak Concept Flying Tourbillon "Tamara Ralph" Limited Edition',
     description:
       'Designed in collaboration with Tamara Ralph, the limited-edition Royal Oak Concept Flying Tourbillon features an 18-carat pink gold case glittering with Frosted Gold and a multilayered dial in graded shades of brown, bronze and gold.',
   },
