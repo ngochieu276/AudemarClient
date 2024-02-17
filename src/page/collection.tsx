@@ -1,5 +1,5 @@
 export default function Collection() {
   return (
-    <div>Collection</div>
+    <div>Collection 1</div>
   )
 }
