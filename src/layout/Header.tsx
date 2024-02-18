@@ -12,9 +12,19 @@ import {
   Youtube,
 } from '../assets/svg/social-network';
 import CompanyLogo from '../assets/image/Logo.png';
-import { watchList, servicesListHeader, ourWorldHeaderList, boutiqueList, storiesList } from './navigation-labels';
+import {
+  watchList,
+  servicesListHeader,
+  ourWorldHeaderList,
+  boutiqueList,
+  storiesList,
+  servicesList,
+} from './navigation-labels';
 import { useState } from 'react';
 import { useScrollDirection, ScroolDirection } from '../hook/scrollDirection';
+import Slide from '../component/Slide';
+import { SwiperSlide } from 'swiper/react';
+import CardDetail from '../component/CardDetail';
 
 const storiesLink = [
   {
@@ -34,12 +44,86 @@ const storiesLink = [
   },
 ];
 
+const watchSlides = [
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/products/watches/MTR010333AA/importer/watch.png.transform.apcollectioncarousel.png',
+    bgImg:
+      'https://www.audemarspiguet.com/content/dam/ap/com/collections/code-11-59/static-bg/1col_4000x1923_Code.png.transform.apcollectioncarousel.png',
+    hightlightImg:
+      'https://www.audemarspiguet.com/content/dam/ap/com/collections/code-11-59/logo/logo-2000x1639-white-Code%20(1).png.transform.apcollectioncarousel.png',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/products/watches/MTR010962AA/importer/watch.png.transform.apcollectioncarousel.png',
+    bgImg:
+      'https://www.audemarspiguet.com/content/dam/ap/com/collections/royal-oak/static-bg/1col_4000x1923_RO.png.transform.apcollectioncarousel.png',
+    hightlightImg:
+      'https://www.audemarspiguet.com/content/dam/ap/com/collections/royal-oak/logo/logo-2000x1075-white-Royal-Oak.png.transform.apcollectioncarousel.png',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/products/watches/MTR009454.00/importer/watch.png.transform.apcollectioncarousel.png',
+    bgImg:
+      'https://www.audemarspiguet.com/content/dam/ap/com/collections/royal-oak-offshore/static-bg/1col_4000x1923_ROO.png.transform.apcollectioncarousel.png',
+    hightlightImg:
+      'https://www.audemarspiguet.com/content/dam/ap/com/collections/royal-oak-offshore/logo/logo-2000x1220-white-Royal-Oak-Offshore.png.transform.apcollectioncarousel.png',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/products/watches/MTR009585.00/importer/watch.png.transform.apcollectioncarousel.png',
+    bgImg:
+      'https://www.audemarspiguet.com/content/dam/ap/com/collections/royal-oak-concept/static-bg/1col_4000x1923_ROC.png.transform.apcollectioncarousel.png',
+    hightlightImg:
+      'https://www.audemarspiguet.com/content/dam/ap/com/collections/royal-oak-concept/logo/logo-2000x1220-white-Royal-Oak-Concept.png.transform.apcollectioncarousel.png',
+  },
+];
+
+const ourWorldSlides = [
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/origins/4000x2352.jpg.transform.appagelist.jpg',
+    title: 'Born in Lebrassus',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/savoir-faire/4000x2352-savoirfaire-takeover.jpg.transform.appagelist.jpg',
+    title: 'Savoir-Faire',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/hub-contemporary/4000x2352_contemporary_takeover.jpg.transform.appagelist.jpg',
+    title: 'Ap & Art',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/ap---music/4000x2352.jpg.transform.appagelist.jpg',
+    title: 'Ap & Music',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/ap-and-golf/4000x2352-takeover-golf_v2.jpg.transform.appagelist.jpg',
+    title: 'Ap & Golf',
+  },
+];
+
+const servicesSlides = [
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/origins/4000x2352.jpg.transform.appagelist.jpg',
+    title: 'Maintain Services',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/services/caring/4000x2352-caring-takeover.jpg.transform.appagelist.jpg',
+    title: 'Caring for your watch',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/services/after-sales/4000x2352-aftersales-takeover.jpg.transform.appagelist.jpg',
+    title: 'After Sales Network',
+  },
+];
+
+enum MenuExpand {
+  Watches = 'watches',
+  Ourworld = 'ourworld',
+  Services = 'services',
+}
+
 export default function Header() {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpenMenu, setOpenMenu] = useState(false);
+  const [menuExpand, setMenuExpand] = useState<MenuExpand | null>(null);
 
   const scrollDirection = useScrollDirection();
-
-  console.log(scrollDirection);
 
   const getHeaderPosition = (position: ScroolDirection | null) => {
     if (position === ScroolDirection.Up) {
@@ -49,6 +133,11 @@ export default function Header() {
     }
   };
 
+  const handleExpandMenu = (menu: MenuExpand) => {
+    setOpenMenu(false);
+    setMenuExpand(menu);
+  };
+
   return (
     <header
       className={` sticky ${getHeaderPosition(scrollDirection)} z-50 bg-white duration-300 max-h-screen overflow-y-auto no-scrollbar`}
@@ -56,33 +145,55 @@ export default function Header() {
       <div className="h-32 flex items-center justify-between font-semibold text-sm px-4 lg:px-24">
         <div className="flex items-center gap-12">
           <div
-            onClick={() => setOpen(!isOpen)}
+            onClick={() => setOpenMenu(!isOpenMenu)}
             className={`
             w-8 h-2 cursor-pointer relative
-            after:content-[''] after:block after:absolute after:left-0 after:top-0 after:h-0.5 after:w-full after:bg-black ${isOpen ? 'after:rotate-45 after:top-1/2' : ''} after:duration-500
-            before:content-[''] before:block before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-full before:bg-black ${isOpen ? 'before:-rotate-45 before:top-1/2' : ''} before:duration-500
+            after:content-[''] after:block after:absolute after:left-0 after:top-0 after:h-0.5 after:w-full after:bg-black ${isOpenMenu ? 'after:rotate-45 after:top-1/2' : ''} after:duration-500
+            before:content-[''] before:block before:absolute before:left-0 before:bottom-0 before:h-0.5 before:w-full before:bg-black ${isOpenMenu ? 'before:-rotate-45 before:top-1/2' : ''} before:duration-500
             `}
           ></div>
-          <Link to="" className=" hidden lg:block hover:opacity-75">
-            Watch
-          </Link>
-          <Link to="" className=" hidden lg:block hover:opacity-75">
-            Our world
-          </Link>
-          <Link to="" className=" hidden lg:block hover:opacity-75">
-            Stories
-          </Link>
+          {!isOpenMenu && (
+            <Link
+              to=""
+              className=" hidden lg:block hover:opacity-75"
+              onClick={() => handleExpandMenu(MenuExpand.Watches)}
+            >
+              Watch
+            </Link>
+          )}
+          {!isOpenMenu && (
+            <Link
+              to=""
+              className=" hidden lg:block hover:opacity-75"
+              onClick={() => handleExpandMenu(MenuExpand.Ourworld)}
+            >
+              Our world
+            </Link>
+          )}
+          {!isOpenMenu && (
+            <Link to="/stories" className=" hidden lg:block hover:opacity-75">
+              Stories
+            </Link>
+          )}
         </div>
         <div>
           <img src={CompanyLogo} alt="Logo" />
         </div>
         <div className="flex items-center gap-4 lg:gap-12">
-          <Link to="" className=" hidden lg:block hover:opacity-75">
-            Service
-          </Link>
-          <Link to="" className=" hidden lg:block hover:opacity-75">
-            Boutiques
-          </Link>
+          {!isOpenMenu && (
+            <Link
+              to=""
+              className=" hidden lg:block hover:opacity-75"
+              onClick={() => handleExpandMenu(MenuExpand.Services)}
+            >
+              Service
+            </Link>
+          )}
+          {!isOpenMenu && (
+            <Link to="/boutiques" className=" hidden lg:block hover:opacity-75">
+              Boutiques
+            </Link>
+          )}
           <Link to="" className=" hover:opacity-75">
             <User color="black" />
           </Link>
@@ -91,7 +202,7 @@ export default function Header() {
           </Link>
         </div>
       </div>
-      {isOpen && (
+      {isOpenMenu && (
         <div className=" grid grid-cols-4 px-4 pb-12 lg:px-24">
           <div className=" col-span-4 lg:col-span-1 md:row-start-2 lg:row-start-1 text-xs md:grid md:grid-cols-2 lg:flex lg:flex-col">
             <div className="flex flex-col mb-8">
@@ -168,6 +279,90 @@ export default function Header() {
               <Whatsapp color="black" />
             </div>
             <div className="flex justify-center md:justify-end">© 2024 Audemars Piguet</div>
+          </div>
+        </div>
+      )}
+      {menuExpand === MenuExpand.Watches && (
+        <div className=" grid grid-cols-4 px-4 pb-12 lg:px-24">
+          <div className=" col-span-4 md:col-span-1">
+            <div className="flex flex-col mb-8 md:mt-12">
+              {watchList.map((item) => (
+                <Link to={item.path} className="hover:opacity-75">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className=" col-span-4 md:col-span-3">
+            <div className=" flex items-center gap-2">
+              <h2 className="font-raleway text-4xl lg:text-5xl font-thin">OUR</h2>
+              <h2 className="font-lora text-4xl lg:text-5xl font-normal italic">COLLECTIONS</h2>
+            </div>
+            <Slide>
+              {watchSlides.map((slide) => {
+                return (
+                  <SwiperSlide>
+                    <CardDetail onlyImage {...slide} />
+                  </SwiperSlide>
+                );
+              })}
+            </Slide>
+          </div>
+        </div>
+      )}
+      {menuExpand === MenuExpand.Ourworld && (
+        <div className=" grid grid-cols-4 px-4 pb-12 lg:px-24">
+          <div className=" col-span-4 md:col-span-1">
+            <div className="flex flex-col mb-8 md:mt-12">
+              {ourWorldHeaderList.map((item) => (
+                <Link to={item.path} className="hover:opacity-75">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className=" col-span-4 md:col-span-3">
+            <div className=" flex items-center gap-2">
+              <h2 className="font-raleway text-4xl lg:text-5xl font-thin">WHO WE</h2>
+              <h2 className="font-lora text-4xl lg:text-5xl font-normal italic">ARE</h2>
+            </div>
+            <Slide>
+              {ourWorldSlides.map((slide) => {
+                return (
+                  <SwiperSlide>
+                    <CardDetail whiteMode {...slide} />
+                  </SwiperSlide>
+                );
+              })}
+            </Slide>
+          </div>
+        </div>
+      )}
+      {menuExpand === MenuExpand.Services && (
+        <div className=" grid grid-cols-4 px-4 pb-12 lg:px-24">
+          <div className=" col-span-4 md:col-span-1">
+            <div className="flex flex-col mb-8 md:mt-12">
+              {servicesList.map((item) => (
+                <Link to={item.path} className="hover:opacity-75">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+          <div className=" col-span-4 md:col-span-3">
+            <div className=" flex items-center gap-2">
+              <h2 className="font-raleway text-4xl lg:text-5xl font-thin">OUR</h2>
+              <h2 className="font-lora text-4xl lg:text-5xl font-normal italic">SERVICES</h2>
+            </div>
+            <Slide>
+              {servicesSlides.map((slide) => {
+                return (
+                  <SwiperSlide>
+                    <CardDetail whiteMode {...slide} />
+                  </SwiperSlide>
+                );
+              })}
+            </Slide>
           </div>
         </div>
       )}

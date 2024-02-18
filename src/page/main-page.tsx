@@ -7,7 +7,7 @@ import Gallery from '../component/Gallery';
 import IntroduceImage from '../component/IntroduceImage';
 import Subcribe from '../layout/Subcribe';
 
-const slides1 = [
+export const slides1 = [
   {
     link: 'https://dynamicmedia.audemarspiguet.com/is/image/audemarspiguet/carouselHP_novelties_1000x1324_tamara_jan24?size=568,0&fmt=webp-alpha',
     title: 'Royal Oak Concept Flying Tourbillon "Tamara Ralph" Limited Edition',
