@@ -138,6 +138,13 @@ export default function Header() {
     setMenuExpand(menu);
   };
 
+  const handleMainMenu = () => {
+    if (!isOpenMenu && !!menuExpand) {
+      setMenuExpand(null);
+      return;
+    } else setOpenMenu(!isOpenMenu);
+  };
+
   return (
     <header
       className={` sticky ${getHeaderPosition(scrollDirection)} z-50 bg-white duration-300 max-h-screen overflow-y-auto no-scrollbar`}
@@ -145,7 +152,7 @@ export default function Header() {
       <div className="h-32 flex items-center justify-between font-semibold text-sm px-4 lg:px-24">
         <div className="flex items-center gap-12">
           <div
-            onClick={() => setOpenMenu(!isOpenMenu)}
+            onClick={() => handleMainMenu()}
             className={`
             w-8 h-2 cursor-pointer relative
             after:content-[''] after:block after:absolute after:left-0 after:top-0 after:h-0.5 after:w-full after:bg-black ${isOpenMenu ? 'after:rotate-45 after:top-1/2' : ''} after:duration-500

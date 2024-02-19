@@ -3,7 +3,8 @@ import Layout from '../layout';
 import Mainpage from '../page/main-page';
 const Collection = lazy(() => import('../page/collection'));
 const Stories = lazy(() => import('../page/stories'));
-const Boutiques = lazy(() => import('../page/Boutiques'));
+const Boutiques = lazy(() => import('../page/boutiques'));
+const Products = lazy(() => import('../page/products'));
 
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ export const router = createBrowserRouter(
       <Route path="collection" element={<Collection />} />
       <Route path="stories" element={<Stories />} />
       <Route path="boutiques" element={<Boutiques />} />
+      <Route path="products" element={<Products />} />
     </Route>
   )
 );

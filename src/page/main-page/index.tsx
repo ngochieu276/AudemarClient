@@ -1,11 +1,11 @@
 import { SwiperSlide } from 'swiper/react';
-import IntroduceSlide from '../component/IntroduceSlide';
-import IntroduceVideo from '../component/IntroduceVideo';
-import CardDetail from '../component/CardDetail';
-import IntroduceNoneBG from '../component/IntroduceNoneBg';
-import Gallery from '../component/Gallery';
-import IntroduceImage from '../component/IntroduceImage';
-import Subcribe from '../layout/Subcribe';
+import IntroduceSlide from '../../component/IntroduceSlide';
+import IntroduceVideo from '../../component/IntroduceVideo';
+import CardDetail from '../../component/CardDetail';
+import IntroduceNoneBG from '../../component/IntroduceNoneBg';
+import Gallery from '../../component/Gallery';
+import IntroduceImage from '../../component/IntroduceImage';
+import Subcribe from '../../layout/Subcribe';
 
 export const slides1 = [
   {
