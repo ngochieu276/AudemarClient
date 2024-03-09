@@ -2,324 +2,39 @@ import { useState } from 'react';
 import { Search } from '../../assets/svg/common';
 import useWindowDimensions from '../../hook/useWindowDimention';
 import { getIconScaleByWBreakpoint } from '../../utils';
-import { productList } from './data';
+import {
+  CollectionFilterLabel,
+  FunctionFilterLabel,
+  MaterialFilterLabel,
+  MechanismFilterLabel,
+  collectionFilterData,
+  functionFilterData,
+  materialFilterData,
+  mechanismFilterData,
+  productList,
+  sizeFilterData,
+} from './data';
 import ProductCard from './product-card';
 import { CloseOutlined, DownOutlined } from '@ant-design/icons';
 import Checkbox from '../../component/ui-component/checkbox';
 import ImgCheckbox from '../../component/ui-component/img-checkbox';
-
-enum ProductTabFilter {
-  Size = 'Size',
-  Collection = 'Collection',
-  Complications = 'Complications',
-  Material = 'Material',
-}
-
-enum SizeFilterParam {
-  Large = 'Large',
-  Medium = 'Medium',
-  Small = 'Small',
-}
-
-enum FilterCollection {
-  SpecialEdition = 'Special Edition',
-  CurrentCollection = 'Special Collection',
-  LegacyWatch = 'Legacy Watches',
-}
-
-enum CollectionFilterParam {
-  RoyalOak = 'RoyalOak',
-  RoyalOakConcept = 'RoyalOakConcept',
-  RoyalOakOffshore = 'RoyalOakOffshore',
-  Code1159ByAudemar = 'Code1159ByAudemar',
-}
-
-enum MechanismFilterParam {
-  SelfWinding = 'SelfWinding',
-  HandWound = 'HandWound',
-  Quazt = 'Quazt',
-}
-
-enum FunctionFilterParam {
-  WanderingHoursStarWheel = 'WanderingHoursStarWheel',
-  MoonPhase = 'MoonPhase',
-  HoursMinutes = 'HoursMinutes',
-  HoursMinutesSmallsecond = 'HoursMinutesSmallsecond',
-  HoursMinutesCentersecond = 'HoursMinutesCentersecond',
-  FlybackChrnograph = 'FlybackChrnograph',
-  SplitSecondChrnograph = 'SplitSecondChrnograph',
-  Chrnograph = 'Chrnograph',
-  DualTime = 'DualTime',
-  Gmt = 'Gmt',
-  PerpetualCalendar = 'PerpetualCalendar',
-  SimpleCalender = 'SimpleCalender',
-  MinuteRepeater = 'MinuteRepeater',
-  FlyingTourBilion = 'FlyingTourBilion',
-  TourBilion = 'TourBilion',
-}
-
-const MechanismFilterLabel = {
-  [MechanismFilterParam.SelfWinding]: 'SELFWINDING',
-  [MechanismFilterParam.HandWound]: 'HAND-WOUND',
-  [MechanismFilterParam.Quazt]: 'QUARZT',
-};
-
-const CollectionFilterLabel = {
-  [CollectionFilterParam.RoyalOak]: 'ROYAL OAK',
-  [CollectionFilterParam.RoyalOakConcept]: 'ROYAL OAK CONCEPT',
-  [CollectionFilterParam.RoyalOakOffshore]: 'ROYAL OAK OFFSHORE',
-  [CollectionFilterParam.Code1159ByAudemar]: 'CODE 11.59 BY AUDEMARS PIGUET',
-};
-
-const FunctionFilterLabel = {
-  [FunctionFilterParam.WanderingHoursStarWheel]: 'Wandering Hours Starwheel',
-  [FunctionFilterParam.MoonPhase]: 'Moon Phase',
-  [FunctionFilterParam.HoursMinutes]: 'Hours, minutes',
-  [FunctionFilterParam.HoursMinutesSmallsecond]: 'Hours, minutes, small seconds',
-  [FunctionFilterParam.HoursMinutesCentersecond]: 'Hours, minutes, centre seconds',
-  [FunctionFilterParam.FlybackChrnograph]: 'Flyback chronograph',
-  [FunctionFilterParam.SplitSecondChrnograph]: 'Split-seconds chronograph',
-  [FunctionFilterParam.Chrnograph]: 'Chrnograph',
-  [FunctionFilterParam.DualTime]: 'DualTime',
-  [FunctionFilterParam.Gmt]: 'Gmt',
-  [FunctionFilterParam.PerpetualCalendar]: 'Perpetual Calendar',
-  [FunctionFilterParam.SimpleCalender]: 'Simple Calender',
-  [FunctionFilterParam.MinuteRepeater]: 'Minute Repeater',
-  [FunctionFilterParam.FlyingTourBilion]: 'Flying TourBilion',
-  [FunctionFilterParam.TourBilion]: 'TourBilion',
-};
-
-interface ProductFilter {
-  title: string;
-  active: boolean;
-  description: string;
-  qty: number;
-  tag: ProductTabFilter;
-  img?: string;
-  label: string;
-}
-
-const sizeFilterData: ProductFilter[] = [
-  {
-    title: SizeFilterParam.Large,
-    active: false,
-    description: '42 MM AND UP',
-    qty: 51,
-    tag: ProductTabFilter.Size,
-    label: SizeFilterParam.Large,
-  },
-  {
-    title: SizeFilterParam.Medium,
-    active: false,
-    description: '38 - 41 MM',
-    qty: 23,
-    tag: ProductTabFilter.Size,
-    label: SizeFilterParam.Medium,
-  },
-  {
-    title: SizeFilterParam.Small,
-    active: false,
-    description: '42 MM AND UP',
-    qty: 48,
-    tag: ProductTabFilter.Size,
-    label: SizeFilterParam.Small,
-  },
-];
-
-const collectionFilterData: ProductFilter[] = [
-  {
-    title: CollectionFilterParam.RoyalOakConcept,
-    active: false,
-    description: '',
-    qty: 51,
-    tag: ProductTabFilter.Collection,
-    img: 'https://www.audemarspiguet.com/content/dam/ap/com/filter-options/collections/collection-RO.jpg',
-    label: CollectionFilterLabel[CollectionFilterParam.RoyalOakConcept],
-  },
-  {
-    title: CollectionFilterParam.RoyalOak,
-    active: false,
-    description: '',
-    qty: 23,
-    tag: ProductTabFilter.Collection,
-    img: 'https://www.audemarspiguet.com/content/dam/ap/com/filter-options/collections/collection-ROC.jpg',
-    label: CollectionFilterLabel[CollectionFilterParam.RoyalOak],
-  },
-  {
-    title: CollectionFilterParam.RoyalOakOffshore,
-    active: false,
-    description: '',
-    qty: 48,
-    tag: ProductTabFilter.Collection,
-    img: 'https://www.audemarspiguet.com/content/dam/ap/com/filter-options/collections/collection-ROO.jpg',
-    label: CollectionFilterLabel[CollectionFilterParam.RoyalOakOffshore],
-  },
-  {
-    title: CollectionFilterParam.Code1159ByAudemar,
-    active: false,
-    description: '',
-    qty: 48,
-    tag: ProductTabFilter.Collection,
-    img: 'https://www.audemarspiguet.com/content/dam/ap/com/filter-options/collections/collection-11.59.jpg',
-    label: CollectionFilterLabel[CollectionFilterParam.Code1159ByAudemar],
-  },
-];
-
-const mechanismFilterData: ProductFilter[] = [
-  {
-    title: MechanismFilterParam.SelfWinding,
-    active: false,
-    description: '',
-    qty: 198,
-    tag: ProductTabFilter.Complications,
-    label: MechanismFilterParam.SelfWinding,
-  },
-  {
-    title: MechanismFilterParam.HandWound,
-    active: false,
-    description: '',
-    qty: 52,
-    tag: ProductTabFilter.Complications,
-    label: MechanismFilterParam.HandWound,
-  },
-  {
-    title: MechanismFilterParam.Quazt,
-    active: false,
-    description: '',
-    qty: 102,
-    tag: ProductTabFilter.Complications,
-    label: MechanismFilterParam.Quazt,
-  },
-];
-
-const functionFilterData: ProductFilter[] = [
-  {
-    title: FunctionFilterParam.WanderingHoursStarWheel,
-    active: false,
-    description: '',
-    qty: 18,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.WanderingHoursStarWheel,
-  },
-  {
-    title: FunctionFilterParam.MoonPhase,
-    active: false,
-    description: '',
-    qty: 98,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.MoonPhase,
-  },
-  {
-    title: FunctionFilterParam.HoursMinutes,
-    active: false,
-    description: '',
-    qty: 19,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.HoursMinutes,
-  },
-  {
-    title: FunctionFilterParam.HoursMinutesSmallsecond,
-    active: false,
-    description: '',
-    qty: 67,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.HoursMinutesSmallsecond,
-  },
-  {
-    title: FunctionFilterParam.HoursMinutesCentersecond,
-    active: false,
-    description: '',
-    qty: 198,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.HoursMinutesCentersecond,
-  },
-  {
-    title: FunctionFilterParam.FlybackChrnograph,
-    active: false,
-    description: '',
-    qty: 45,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.FlybackChrnograph,
-  },
-  {
-    title: FunctionFilterParam.SplitSecondChrnograph,
-    active: false,
-    description: '',
-    qty: 12,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.SplitSecondChrnograph,
-  },
-  {
-    title: FunctionFilterParam.Chrnograph,
-    active: false,
-    description: '',
-    qty: 1,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.Chrnograph,
-  },
-  {
-    title: FunctionFilterParam.DualTime,
-    active: false,
-    description: '',
-    qty: 53,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.DualTime,
-  },
-  {
-    title: FunctionFilterParam.Gmt,
-    active: false,
-    description: '',
-    qty: 1,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.Gmt,
-  },
-  {
-    title: FunctionFilterParam.PerpetualCalendar,
-    active: false,
-    description: '',
-    qty: 198,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.PerpetualCalendar,
-  },
-  {
-    title: FunctionFilterParam.SimpleCalender,
-    active: false,
-    description: '',
-    qty: 3,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.SimpleCalender,
-  },
-  {
-    title: FunctionFilterParam.MinuteRepeater,
-    active: false,
-    description: '',
-    qty: 23,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.MinuteRepeater,
-  },
-  {
-    title: FunctionFilterParam.FlyingTourBilion,
-    active: false,
-    description: '',
-    qty: 198,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.FlyingTourBilion,
-  },
-  {
-    title: FunctionFilterParam.TourBilion,
-    active: false,
-    description: '',
-    qty: 43,
-    tag: ProductTabFilter.Complications,
-    label: FunctionFilterParam.TourBilion,
-  },
-];
+import {
+  CollectionFilterParam,
+  FilterCollection,
+  MechanismFilterParam,
+  ProductFilter,
+  ProductTabFilter,
+  SizeFilterParam,
+  FunctionFilterParam,
+  MaterialFilterParam,
+} from '../../dto/product.dto';
 
 const productFilterData: ProductFilter[] = [
   ...sizeFilterData,
   ...collectionFilterData,
   ...mechanismFilterData,
   ...functionFilterData,
+  ...materialFilterData,
 ];
 
 export default function Products() {
@@ -336,7 +51,12 @@ export default function Products() {
   };
 
   const handleSetProductFilter = (
-    productParam: SizeFilterParam | CollectionFilterParam | MechanismFilterParam | FunctionFilterParam,
+    productParam:
+      | SizeFilterParam
+      | CollectionFilterParam
+      | MechanismFilterParam
+      | FunctionFilterParam
+      | MaterialFilterParam,
     active: boolean
   ) => {
     const newFilter = [...productFilter].map((product) => {
@@ -552,7 +272,32 @@ export default function Products() {
               </div>
             </div>
           )}
-          {filterBy === ProductTabFilter.Material && <div>Mate</div>}
+          {filterBy === ProductTabFilter.Material && (
+            <div>
+              <h6 className=" font-extralight text-2xl">CASE</h6>
+              <div className=" flex flex-wrap gap-2">
+                {productFilter
+                  .filter((product) => product.tag === ProductTabFilter.Material)
+                  .map((filter) => {
+                    return (
+                      <div className=" w-32 lg:w-40" key={filter.title}>
+                        <ImgCheckbox
+                          checked={filter.active}
+                          onChanged={(value) => {
+                            handleSetProductFilter(filter.title as MaterialFilterParam, value);
+                          }}
+                          img={filter.img}
+                        />
+                        <div className=" text-base font-semibold">
+                          {MaterialFilterLabel[filter.title as MaterialFilterParam]}
+                          <span className=" font-thin ms-3">{filter.qty}</span>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="product-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 my-4">
