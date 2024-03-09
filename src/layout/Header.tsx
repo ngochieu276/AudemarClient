@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Global, Search, User } from '../assets/svg/common';
+import { Global, Search, User } from 'assets/svg/common';
 import {
   Facebook,
   Instagram,
@@ -10,8 +10,8 @@ import {
   Weibo,
   Whatsapp,
   Youtube,
-} from '../assets/svg/social-network';
-import CompanyLogo from '../assets/image/Logo.png';
+} from 'assets/svg/social-network';
+import CompanyLogo from 'assets/image/Logo.png';
 import {
   watchList,
   servicesListHeader,
@@ -21,10 +21,10 @@ import {
   servicesList,
 } from './navigation-labels';
 import { useState } from 'react';
-import { useScrollDirection, ScroolDirection } from '../hook/scrollDirection';
-import Slide from '../component/Slide';
+import { useScrollDirection, ScroolDirection } from 'hook/scrollDirection';
+import Slide from 'component/Slide';
 import { SwiperSlide } from 'swiper/react';
-import CardDetail from '../component/CardDetail';
+import CardDetail from 'component/CardDetail';
 
 const storiesLink = [
   {

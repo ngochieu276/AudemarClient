@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Search } from '../../assets/svg/common';
-import useWindowDimensions from '../../hook/useWindowDimention';
-import { getIconScaleByWBreakpoint } from '../../utils';
+import { Search } from 'assets/svg/common';
+import useWindowDimensions from 'hook/useWindowDimention';
+import { getIconScaleByWBreakpoint } from 'utils';
 import {
   CollectionFilterLabel,
   FunctionFilterLabel,
@@ -16,8 +16,8 @@ import {
 } from './data';
 import ProductCard from './product-card';
 import { CloseOutlined, DownOutlined } from '@ant-design/icons';
-import Checkbox from '../../component/ui-component/checkbox';
-import ImgCheckbox from '../../component/ui-component/img-checkbox';
+import Checkbox from 'component/ui-component/checkbox';
+import ImgCheckbox from 'component/ui-component/img-checkbox';
 import {
   CollectionFilterParam,
   FilterCollection,
@@ -27,7 +27,7 @@ import {
   SizeFilterParam,
   FunctionFilterParam,
   MaterialFilterParam,
-} from '../../dto/product.dto';
+} from 'dto/product.dto';
 
 const productFilterData: ProductFilter[] = [
   ...sizeFilterData,

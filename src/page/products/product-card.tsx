@@ -1,4 +1,4 @@
-import { ProductDto } from '../../dto/product.dto';
+import { ProductDto } from 'dto/product.dto';
 
 export default function ProductCard(props: { product: ProductDto }) {
   return (

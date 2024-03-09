@@ -1,10 +1,10 @@
 import { lazy } from 'react';
-import Layout from '../layout';
-import Mainpage from '../page/main-page';
-const Collection = lazy(() => import('../page/collection'));
-const Stories = lazy(() => import('../page/stories'));
-const Boutiques = lazy(() => import('../page/boutiques'));
-const Products = lazy(() => import('../page/products'));
+import Layout from 'layout';
+import Mainpage from 'page/main-page';
+const Collection = lazy(() => import('page/collection'));
+const Stories = lazy(() => import('page/stories'));
+const Boutiques = lazy(() => import('page/boutiques'));
+const Products = lazy(() => import('page/products'));
 
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 

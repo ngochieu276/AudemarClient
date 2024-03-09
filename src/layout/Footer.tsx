@@ -9,8 +9,8 @@ import {
   Weibo,
   Whatsapp,
   Youtube,
-} from '../assets/svg/social-network';
-import { Global } from '../assets/svg/common';
+} from 'assets/svg/social-network';
+import { Global } from 'assets/svg/common';
 import { watchList, ourWorldList, servicesList, companyList, policyList } from './navigation-labels';
 
 export default function Footer() {
