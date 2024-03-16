@@ -30,7 +30,7 @@ export default function CardDetail(props: CardDetailProps) {
       {!props.onlyImage && (
         <div className={`${props.whiteMode ? 'text-black' : 'text-white'}`}>
           <p className="font-medium mb-6">{props.title}</p>
-          <p className="font-extralight mb-12">{props.description}</p>
+          <p className="font-extralight mb-6">{props.description}</p>
           <ButtonMore label={props.buttonMoreLabel} />
         </div>
       )}

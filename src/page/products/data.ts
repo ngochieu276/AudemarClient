@@ -433,3 +433,36 @@ export const materialFilterData: ProductFilter[] = [
     label: MaterialFilterLabel[MaterialFilterParam.Titanium],
   },
 ];
+
+export const closeProductDetais = [
+  'https://www.audemarspiguet.com/content/dam/ap/com/fragments/code-11-59-first-fragment/26398bc-oo-d002cr-04/car1bis_26398BC.OO.D002CR.04.jpg.transform.apcarouselh.jpg',
+  'https://www.audemarspiguet.com/content/dam/ap/com/fragments/code-11-59-first-fragment/26398bc-oo-d002cr-04/car1_26398BC.OO.D002CR.04.jpg.transform.apcarouselh.jpg',
+  'https://www.audemarspiguet.com/content/dam/ap/com/fragments/code-11-59-first-fragment/26398bc-oo-d002cr-04/car2_26398BC.OO.D002CR.04.jpg.transform.apcarouselh.jpg',
+];
+
+export const complicationData = [
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/fragments/complications/qp.jpg',
+    title: "An intuitive 'Super-crown'",
+    description:
+      'The crown enables the forwards or backwards correction of the month and automatically returns to its neutral position after a rotation in either direction. This ease of use hides highly technical mechanical devices located in both the crown and the movement, as well as a complex security system preventing misuse.',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/fragments/complications/escapement.jpg',
+    title: 'Moon phase',
+    description:
+      'An innovative astronomical moon system conveys a more realistic depiction of the lunar cycle. Two concentric discs, on which six different moon positions are printed, combine to form ten images faithfully representing the transitory stages between the New and Full Moon.',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/fragments/complications/flyback_chrono.jpg',
+    title: 'Grande Sonnerie Supersonnerie',
+    description:
+      'In Calibre 1000 the gongs are now attached to the 0.6mm sapphire crystal membrane acting as a soundboard, while the caseback can be opened by an extra-thin "secret" cover, which also features apertures on the side to let air through and boost sound amplification when the watch sits on the wrist.',
+  },
+  {
+    link: 'https://www.audemarspiguet.com/content/dam/ap/com/fragments/complications/crown.jpg',
+    title: 'Perpetual calendar',
+    description:
+      'The calendar functions have been organised to take as little space as possible. Calibre 1000 builds on the Calibre 5133 and the release of the Royal Oak Selfwinding Perpetual Calendar Ultra-Thin RD#2 prototype, which merged the perpetual calendar functions onto one single level. The end-of-the-month cam has been similarly integrated to the date wheel, while the month cam has been combined to the month wheel. Additional calendar functions include a large date and a year indication.',
+  },
+];

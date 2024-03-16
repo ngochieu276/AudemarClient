@@ -27,7 +27,7 @@ export default function IntroduceImage(props: IntroImageProps) {
   if (props.reverse) {
     return (
       <div
-        className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-8 lg:p-24 grid grid-cols-3 gap-8 lg:gap-24`}
+        className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-8 lg:p-24 grid grid-cols-3 gap-8`}
       >
         <div className="col-span-3 lg:col-span-1">
           <Intro
@@ -46,7 +46,7 @@ export default function IntroduceImage(props: IntroImageProps) {
   }
   return (
     <div
-      className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-8 lg:p-24 grid grid-cols-3 gap-8 lg:gap-24`}
+      className={`introduce-slide relative w-full ${getColorMode(props.whiteMode).bg} ${getColorMode(props.whiteMode).text} p-8 lg:p-24 grid grid-cols-3 gap-8`}
     >
       <div className="col-span-3 lg:col-span-2 flex justify-center items-center object-contain">
         <img src={props.img} alt="introduce" className={`${getImageWidth()}`} />

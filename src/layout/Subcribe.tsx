@@ -11,7 +11,7 @@ export default function Subcribe() {
         Be the first to receive the latest news on our brand, products and upcoming events.
       </div>
       <div className="col-span-3 md:col-span-1">
-        <Button label="Subcribe" />
+        <Button label="Subcribe" color="black" bg="white" borderColor="black" />
       </div>
     </div>
   );
